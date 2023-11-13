@@ -32,6 +32,13 @@
             position: relative;
             justify-content: space-between;
           }
+
+          section {
+            background-image: url('téléchargement13.png');
+            background-size: cover;
+            background-position: center;
+          }
+
           h1  {
             color: #333;
             margin-bottom: 5px;
@@ -56,56 +63,64 @@
           }
         </style>
 
-</head>
-<body>
-  <table>
-    <xsl:for-each select="universites/universite">
-      <tr>
-        <th colspan="2" bgcolor="#4CAF50">
-          <div class="university-info">
-            <div>
-              <h1><xsl:value-of select="nom"/></h1>
-              <p><xsl:value-of select="ville"/></p>
-            </div>
-            <img src="{image}" alt="Logo de l'université"/>
-          </div>
-        </th>
-      </tr>
-      <tr>
-        <td>
-          <h2>Facultés</h2>
-          <ul>
-            <xsl:for-each select="facultes/faculte">
-              <li><xsl:value-of select="nom"/></li>
-            </xsl:for-each>
-          </ul>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <h2>Ecoles</h2>
-          <ul>
-            <xsl:for-each select="ecoles/ecole">
-              <li><xsl:value-of select="nom"/></li>
-            </xsl:for-each>
-          </ul>
-        </td>
-      </tr>
-      <xsl:if test="instituts">
-      <tr>
-        <td>
-          <h2>Instituts</h2>
-          <ul>
-            <xsl:for-each select="instituts/institut">
-              <li><xsl:value-of select="nom"/></li>
-            </xsl:for-each>
-          </ul>
-        </td>
-      </tr>
-    </xsl:if>
-    </xsl:for-each>
-  </table>
-</body>
-</html>
-</xsl:template>
+      </head>
+      <body>
+        <section>
+          <br/>
+          <h1>Référentiel des Universités Marocaines !</h1>
+          <p>Nous vous listons les universités publiques marocaines et leurs compositions par villes :</p>  
+          <br/>
+          <br/>
+          <br/>    
+        </section>
+        <table>
+          <xsl:for-each select="universites/universite">
+            <tr>
+              <th colspan="2" bgcolor="#4CAF50">
+                <div class="university-info">
+                  <div>
+                    <h1><xsl:value-of select="nom"/></h1>
+                    <p><xsl:value-of select="ville"/></p>
+                  </div>
+                  <img src="{image}" alt="Logo de l'université"/>
+                </div>
+              </th>
+            </tr>
+            <tr>
+              <td>
+                <h2>Facultés</h2>
+                <ul>
+                  <xsl:for-each select="facultes/faculte">
+                    <li><xsl:value-of select="nom"/></li>
+                  </xsl:for-each>
+                </ul>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h2>Ecoles</h2>
+                <ul>
+                  <xsl:for-each select="ecoles/ecole">
+                    <li><xsl:value-of select="nom"/></li>
+                  </xsl:for-each>
+                </ul>
+              </td>
+            </tr>
+            <xsl:if test="instituts">
+            <tr>
+              <td>
+                <h2>Instituts</h2>
+                <ul>
+                  <xsl:for-each select="instituts/institut">
+                    <li><xsl:value-of select="nom"/></li>
+                  </xsl:for-each>
+                </ul>
+              </td>
+            </tr>
+          </xsl:if>
+          </xsl:for-each>
+        </table>
+      </body>
+    </html>
+  </xsl:template>
 </xsl:stylesheet>    
